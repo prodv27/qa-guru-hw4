@@ -30,7 +30,7 @@ public class GitHubTests {
 
 //        Откройте страницу SoftAssertions, проверьте что внутри есть пример кода для JUnit5
         $("a[href='/selenide/selenide/wiki/SoftAssertions']").click();
-        $(".markdown-body").shouldHave(text("3. Using JUnit5 extend test class:"));
+        $(".markdown-body").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})"));
 
     }
 
