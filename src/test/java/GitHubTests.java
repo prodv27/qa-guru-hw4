@@ -17,6 +17,18 @@ public class GitHubTests {
     @Test
     void checkExampleCodeForJUnit5() {
 
+        String exampleCodeForJUnit5 = "@ExtendWith({SoftAssertsExtension.class})\n" +
+                "class Tests {\n" +
+                "  @Test\n" +
+                "  void test() {\n" +
+                "    Configuration.assertionMode = SOFT;\n" +
+                "    open(\"page.html\");\n" +
+                "\n" +
+                "    $(\"#first\").should(visible).click();\n" +
+                "    $(\"#second\").should(visible).click();\n" +
+                "  }\n" +
+                "}";
+
 //        Откройте страницу Selenide в Github
         open("/selenide/selenide");
 
@@ -30,7 +42,7 @@ public class GitHubTests {
 
 //        Откройте страницу SoftAssertions, проверьте что внутри есть пример кода для JUnit5
         $("a[href='/selenide/selenide/wiki/SoftAssertions']").click();
-        $(".markdown-body").shouldHave(text("@ExtendWith({SoftAssertsExtension.class})"));
+        $(".markdown-body").shouldHave(text(exampleCodeForJUnit5));
 
     }
 
